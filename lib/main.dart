@@ -27,27 +27,25 @@ class _DicePageStage extends State<DicePage> {
   @override
   Widget build(BuildContext context) {
     changeDicesNumbers() {
-      leftDiceNumber = Random().nextInt(6) + 1;
-      rigthDiceNumber = Random().nextInt(6) + 1;
-    };
+      setState(() {
+        leftDiceNumber = Random().nextInt(6) + 1;
+        rigthDiceNumber = Random().nextInt(6) + 1;
+      });
+    }
     return Center(
       child: Row(
         children: [
           Expanded(
             child: TextButton(
                 onPressed: () {
-                  setState(() {
-                    changeDicesNumbers();
-                  });
+                  changeDicesNumbers();
                 },
                 child: Image.asset('images/dice$leftDiceNumber.png')),
           ),
           Expanded(
             child: TextButton(
                 onPressed: () {
-                  setState(() {
-                    changeDicesNumbers();
-                  });
+                  changeDicesNumbers();
                 },
                 child: Image.asset('images/dice$rigthDiceNumber.png')),
           )
