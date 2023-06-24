@@ -26,6 +26,10 @@ class _DicePageStage extends State<DicePage> {
   int rigthDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
+    changeDicesNumbers() {
+      leftDiceNumber = Random().nextInt(6) + 1;
+      rigthDiceNumber = Random().nextInt(6) + 1;
+    };
     return Center(
       child: Row(
         children: [
@@ -33,7 +37,7 @@ class _DicePageStage extends State<DicePage> {
             child: TextButton(
                 onPressed: () {
                   setState(() {
-                    leftDiceNumber = Random().nextInt(6) + 1;
+                    changeDicesNumbers();
                   });
                 },
                 child: Image.asset('images/dice$leftDiceNumber.png')),
@@ -42,7 +46,7 @@ class _DicePageStage extends State<DicePage> {
             child: TextButton(
                 onPressed: () {
                   setState(() {
-                    rigthDiceNumber = Random().nextInt(6) + 1;
+                    changeDicesNumbers();
                   });
                 },
                 child: Image.asset('images/dice$rigthDiceNumber.png')),
